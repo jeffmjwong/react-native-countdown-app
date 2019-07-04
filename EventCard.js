@@ -8,6 +8,13 @@ const styles = StyleSheet.create({
 });
 
 export default function EventCard({ event }) {
+  const {
+    days,
+    hours,
+    minutes,
+    seconds
+  } = getCountdownParts(event.date);
+
   return (
     <View style={styles.card}>
       <View style={styles.cardHeader}>
