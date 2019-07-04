@@ -1,9 +1,9 @@
 import React from 'react';
-import { Text, View, Stylesheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import { formatDate, getCountdownParts } from './api';
 
-const styles = Stylesheet.create({
+const styles = StyleSheet.create({
 
 });
 
