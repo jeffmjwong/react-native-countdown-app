@@ -28,7 +28,12 @@ class EventForm extends Component {
   }
 
   handleAddPress = () => {
+    console.log(this.state);
     this.props.navigation.navigate("list");
+  }
+
+  handleChangeTitle = (value) => {
+    this.setState({ title: value });
   }
 
   render() {
@@ -44,6 +49,8 @@ class EventForm extends Component {
             style={styles.text}
             placeholder='Event title'
             spellCheck={false}
+            value={this.state.title}
+            onChangeText={this.handleChangeTitle}
           />
         </View>
 
