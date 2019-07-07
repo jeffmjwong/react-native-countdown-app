@@ -1,5 +1,16 @@
 import moment from 'moment';
 
+const url = 'http://localhost:3000/events';
+
+export function getEvents() {
+  return fetch(url)
+    .then(response => response.json())
+    .then(events => events.map(evt => ({
+      ...evt,
+      date: new Date(evt.date)
+    })));
+}
+
 export function formatDate(dateString) {
   const parsed = moment(new Date(dateString));
 
