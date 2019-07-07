@@ -1,4 +1,5 @@
 import moment from 'moment';
+import uuid from 'uuid';
 
 const url = 'http://localhost:3000/events';
 
@@ -9,6 +10,22 @@ export function getEvents() {
       ...evt,
       date: new Date(evt.date)
     })));
+}
+
+export function saveEvent({ title, date }) {
+  return fetch(url, {
+    method: 'POST',
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    }),
+    body: JSON.stringify({
+      title,
+      date,
+      id: uuid()
+    })
+  })
+    .then(res => res.json())
+    .catch(err => console.error(err));
 }
 
 export function formatDate(dateString) {
